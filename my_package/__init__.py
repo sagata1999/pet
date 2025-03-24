@@ -1,0 +1,1 @@
+from .my_module import APP_NAME_CONST
