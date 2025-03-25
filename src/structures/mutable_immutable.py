@@ -1,32 +1,24 @@
-from collections import (
-    namedtuple,
-    deque,
-    defaultdict,
-    OrderedDict,
-    Counter,
-    ChainMap
-)
+from collections import ChainMap, Counter, OrderedDict, defaultdict, deque
+from typing import Any, NamedTuple
 
 
 class ImmutableTypes:
-    INTEGER: type[int]
-    BOOLEAN: type[bool]
-    STRING: type[str]
-    TUPLE: type[tuple]
-    FROZENSET: type[frozenset]
-    NONE_TYPE: type[None]
-    NAMED_TUPLE: type[namedtuple]
+    INTEGER: type[int] = int
+    BOOLEAN: type[bool] = bool
+    STRING: type[str] = str
+    TUPLE: type[tuple[Any, ...]] = tuple
+    FROZENSET: type[frozenset[Any]] = frozenset
+    NONE_TYPE: None = None
+    NAMED_TUPLE: type[NamedTuple] = NamedTuple
 
 
 class MutableTypes:
-    LIST: type[list]
-    DICT: type[dict]
-    SET: type[set]
-    BYTEARRAY: type[bytearray]
-    DEQUE: type[deque]
-    DEFAULT_DICT: type[defaultdict]
-    ORDERED_DICT: type[OrderedDict]
-    COUNTER: type[Counter]
-    CHAIN_MAP: type[ChainMap]
-
-
+    LIST: type[list[Any]] = list
+    DICT: type[dict[Any, Any]] = dict
+    SET: type[set[Any]] = set
+    BYTEARRAY: type[bytearray] = bytearray
+    DEQUE: type[deque[Any]] = deque
+    DEFAULT_DICT: type[defaultdict[Any, Any]] = defaultdict
+    ORDERED_DICT: type[OrderedDict[Any, Any]] = OrderedDict
+    COUNTER: type[Counter[Any]] = Counter
+    CHAIN_MAP: type[ChainMap[Any, Any]] = ChainMap

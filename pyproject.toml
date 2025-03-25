@@ -1,17 +1,82 @@
-[project]
+[tool.poetry]
 name = "pet"
-version = "0.1.0"
-description = ""
-authors = [
-    {name = "sagata1999",email = "sagata1999@gmail.com"}
-]
+version = "0.0.1"
+description = "Pet project"
+authors = ["sagata1999@gmail.com"]
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-]
 
+[tool.poetry.dependencies]
+python = ">=3.12 <3.13"
+coverage = "^7.6.1"
+testcontainers = "^4.9.1"
+greenlet = "^3.1.1"
+pydantic = "^2.10.6"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry.group.format.dependencies]
+mypy = "^1.15.0"
+ruff = "^0.9.4"
+pre-commit = "^4.1.0"
+
+[tool.poetry.group.tests.dependencies]
+pytest-mock = "^3.14.0"
+pytest-asyncio = "^0.25.3"
+pytest-cov = "^6.0.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+omit = ["tests/*"]
+concurrency = ["greenlet", "thread"]
+
+[tool.mypy]
+warn_redundant_casts = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_unused_ignores = true
+strict_equality = true
+ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "W", "C90", "I", "N", "UP", "YTT", "ASYNC", "S", "B", "C4", "DTZ", "T10", "ISC", "ICN",
+    "PIE", "T20", "PT", "Q", "RET", "SLF", "SIM", "ERA", "PLE", "TRY", "PYI", "PERF", "LOG", "RUF008",
+    "RUF009", "RUF012", "RUF013", "RUF015", "RUF019", "RUF100", "RUF200"
+]
+unfixable = [
+    "ERA",  # do not autoremove commented out code
+]
+ignore = [
+    "TRY003",
+    "ISC001", # may cause conflicts when used with the formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "C4", "ISC", "SLF", "RUF012"]
+"src/*" = ["PT", "S104"]
+#"migrations/*" = ["S", "C4", "ISC", "SLF", "RUF012", "ERA001"]
+
+
+[tool.ruff.lint.pep8-naming]
+# Allow Pydantic's `@validator` decorator to trigger class method treatment.
+classmethod-decorators = [
+  "classmethod",
+  "pydantic.validator",
+  "pydantic.root_validator",
+]

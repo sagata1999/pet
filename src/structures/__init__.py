@@ -1,1 +1,7 @@
-from .mutable_immutable import MutableTypes, ImmutableTypes
+__all__ = [
+    "ImmutableTypes",
+    "MutableTypes",
+]
+
+
+from src.structures.mutable_immutable import ImmutableTypes, MutableTypes
