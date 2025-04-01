@@ -29,18 +29,25 @@ def bubble_sort(arr):
             break
 
 if __name__ == "__main__":
-    tracemalloc.start()
     n = 1000
     arr = [randint(-n, n) for i in range(n)]
     arr2 = arr.copy()
+    tracemalloc.start()
     start = time()
-    bubble_sort(arr)
-    end = time()
     snap = tracemalloc.take_snapshot()
+    bubble_sort(arr)
+    snap2 = tracemalloc.take_snapshot()
+    end = time()
     print(f"Time spent: {end - start}")
     print(f"ARR len: {arr.__len__()}")
     print("Sorted array:")
     # for i in range(len(arr)):
     #     print("%d" % arr[i], end=" ")
-    display_top(snap)
+    stats = snap2.compare_to(snap, 'lineno')
+
+    print("Изменение памяти:")
+    for stat in stats[:5]:  # Выводим топ-5 самых "тяжелых" строк кода
+        print(stat)
+
+    tracemalloc.stop()  # Останавливаем мониторинг
     assert sorted(arr2) == arr

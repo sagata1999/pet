@@ -63,7 +63,7 @@ def print_list(arr):
         print(i, end=" ")
     print()
 
-# Driver code
+
 if __name__ == "__main__":
     tracemalloc.start()
     n = 1000
