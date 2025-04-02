@@ -37,6 +37,7 @@ class HashMap:
             # Если ячейка пуста, то возвращаем индекс ячейки
             if self.map[index] is None:
                 return index
+        return None
 
     def _resize(self) -> None:
         """

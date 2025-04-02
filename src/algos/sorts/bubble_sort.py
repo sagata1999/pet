@@ -39,8 +39,6 @@ if __name__ == "__main__":
     print(f"Time spent: {end - start}")
     print(f"ARR len: {arr.__len__()}")
     print("Sorted array:")
-    # for i in range(len(arr)):
-    #     print("%d" % arr[i], end=" ")
     stats = snap2.compare_to(snap, "lineno")
 
     print("Изменение памяти:")

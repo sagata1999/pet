@@ -8,14 +8,14 @@ def merge(arr, left, mid, right):
     n2 = right - mid
 
     # Create temp arrays
-    L = [0] * n1
-    R = [0] * n2
+    l = [0] * n1
+    r = [0] * n2
 
     # Copy data to temp arrays L[] and R[]
     for i in range(n1):
-        L[i] = arr[left + i]
+        l[i] = arr[left + i]
     for j in range(n2):
-        R[j] = arr[mid + 1 + j]
+        r[j] = arr[mid + 1 + j]
 
     i = 0  # Initial index of first subarray
     j = 0  # Initial index of second subarray
@@ -24,25 +24,25 @@ def merge(arr, left, mid, right):
     # Merge the temp arrays back
     # into arr[left..right]
     while i < n1 and j < n2:
-        if L[i] <= R[j]:
-            arr[k] = L[i]
+        if l[i] <= r[j]:
+            arr[k] = l[i]
             i += 1
         else:
-            arr[k] = R[j]
+            arr[k] = r[j]
             j += 1
         k += 1
 
     # Copy the remaining elements of L[],
     # if there are any
     while i < n1:
-        arr[k] = L[i]
+        arr[k] = l[i]
         i += 1
         k += 1
 
     # Copy the remaining elements of R[],
     # if there are any
     while j < n2:
-        arr[k] = R[j]
+        arr[k] = r[j]
         j += 1
         k += 1
 
@@ -72,11 +72,9 @@ if __name__ == "__main__":
     merge_sort(arr, 0, len(arr) - 1)
     end = time()
     snap = tracemalloc.take_snapshot()
-    # display_top(snap, limit=10)
 
     print(f"Time spent: {end - start}")
     print(f"ARR len: {arr.__len__()}")
     print("\nSorted array is")
-    # print_list(arr)
 
     assert sorted(arr2) == arr

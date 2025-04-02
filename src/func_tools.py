@@ -1,4 +1,4 @@
-from functools import reduce, lru_cache
+from functools import lru_cache, reduce
 
 
 def multiply(x):
@@ -16,6 +16,7 @@ def skip(x):
 USAGE OF MAP
 """
 funcs = [skip, multiply, add]
+value = [lambda x: x(i) for i in range(5)]
 for i in range(5):
     value = list(map(lambda x: x(i), funcs))
     print(value)
@@ -24,9 +25,7 @@ for i in range(5):
 USAGE OF FILTER
 """
 def lower_than_zero(num: int) -> bool:
-    if num < 0:
-        return True
-    return False
+    return num < 0
 
 number_list = range(-5, 5)
 less_than_zero = list(filter(lower_than_zero, number_list))

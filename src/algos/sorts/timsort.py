@@ -66,7 +66,7 @@ def sorted_with_timsort(iterable, key=None, reverse=False):
     """Аналог sorted() с использованием Timsort."""
     # Подготовка данных
     if key is None:
-        key = lambda x: x
+        key = lambda x: x  # noqa
     decorated = [(key(item), idx, item) for idx, item in enumerate(iterable)]
 
     # Сортировка
@@ -93,8 +93,6 @@ if __name__ == "__main__":
     print(f"Time spent: {end - start}")
     print(f"ARR len: {arr.__len__()}")
     print("Sorted array:")
-    # for i in range(len(arr)):
-    #     print("%d" % arr[i], end=" ")
     stats = snap2.compare_to(snap, "lineno")
 
     print("Изменение памяти:")

@@ -51,7 +51,6 @@ if __name__ == "__main__":
     quick_sort(arr, 0, n - 1)
     end = time()
     snap = tracemalloc.take_snapshot()
-    # display_top(snap, limit=10)
 
     print(f"Time spent: {end - start}")
     print(f"ARR len: {arr.__len__()}")
