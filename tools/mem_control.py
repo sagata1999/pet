@@ -1,9 +1,9 @@
-import tracemalloc
-import os
 import linecache
+import os
+import tracemalloc
 
 
-def display_top(snapshot, key_type='lineno', limit=3):
+def display_top(snapshot, key_type="lineno", limit=3):
     snapshot = snapshot.filter_traces((
         tracemalloc.Filter(False, "<frozen importlib._bootstrap>"),
         tracemalloc.Filter(False, "<unknown>"),
@@ -19,7 +19,7 @@ def display_top(snapshot, key_type='lineno', limit=3):
               % (index, filename, frame.lineno, stat.size / 1024))
         line = linecache.getline(frame.filename, frame.lineno).strip()
         if line:
-            print('    %s' % line)
+            print("    %s" % line)
 
     other = top_stats[limit:]
     if other:

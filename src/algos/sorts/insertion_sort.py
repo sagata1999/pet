@@ -1,5 +1,5 @@
-from time import time
 from random import randint
+from time import time
 
 
 def insertion_sort(arr):
@@ -16,14 +16,13 @@ def insertion_sort(arr):
         key = arr[i]  # ключ для сортировки
         j = i - 1
 
-
         # пока второй индекс больше нуля и ключ больше чем элемент индекса
         # движемся влево и ищем подходящую позицию для ключа
         # в это время двигая все элементы вправо, на место ключа
-        while j>= 0 and key < arr[j]:
-            arr[j+1] = arr[j]
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
             j -= 1
-        arr[j+1] = key
+        arr[j + 1] = key
 
 
 if __name__ == "__main__":

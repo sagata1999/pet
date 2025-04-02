@@ -1,7 +1,6 @@
+import tracemalloc
 from random import randint
 from time import time
-import tracemalloc
-from tools.mem_control import display_top
 
 
 def merge(arr, left, mid, right):
@@ -79,6 +78,5 @@ if __name__ == "__main__":
     print(f"ARR len: {arr.__len__()}")
     print("\nSorted array is")
     # print_list(arr)
-
 
     assert sorted(arr2) == arr

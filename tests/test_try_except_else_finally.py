@@ -5,7 +5,5 @@ class TestTryExceptElseFinally:
         finally:
             return 2
 
-
-
     def test_finally(self):
-        assert 2 == self.finally_func()
+        assert self.finally_func() == 2

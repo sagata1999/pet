@@ -59,12 +59,11 @@ class HashMap:
         # Если ячейка не пуста и ключ совпадает, то возвращаем значение
         if self.map[key_hash] is not None and self.map[key_hash][1] == key:
             return self.map[key_hash][2]
-        else:
-            # Иначе ищем значение по ключу
-            for i in range(key_hash + 1, self.size + key_hash):
-                index = i % self.size
-                if self.map[index] is not None and self.map[index][1] == key:
-                    return self.map[key_hash][2]
+        # Иначе ищем значение по ключу
+        for i in range(key_hash + 1, self.size + key_hash):
+            index = i % self.size
+            if self.map[index] is not None and self.map[index][1] == key:
+                return self.map[key_hash][2]
         return None
 
     def delete(self, key) -> bool:
@@ -75,13 +74,12 @@ class HashMap:
         if self.map[key_hash] is not None and self.map[key_hash][0] == key:
             self.map[key_hash] = None
             return True
-        else:
-            # Иначе ищем значение по ключу
-            for i in range(key_hash + 1, self.size + key_hash):
-                index = i % self.size
-                if self.map[index] is not None and self.map[index][0] == key:
-                    self.map[key_hash] = None
-                    return True
+        # Иначе ищем значение по ключу
+        for i in range(key_hash + 1, self.size + key_hash):
+            index = i % self.size
+            if self.map[index] is not None and self.map[index][0] == key:
+                self.map[key_hash] = None
+                return True
         return False
 
     def __str__(self):

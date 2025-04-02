@@ -1,6 +1,6 @@
+import tracemalloc
 from random import randint
 from time import time
-import tracemalloc
 
 
 def partition(arr, low, high):
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     arr = [randint(-n, n) for i in range(n)]
     arr2 = arr.copy()
     start = time()
-    quick_sort(arr, 0, n-1)
+    quick_sort(arr, 0, n - 1)
     end = time()
     snap = tracemalloc.take_snapshot()
     # display_top(snap, limit=10)
@@ -56,6 +56,5 @@ if __name__ == "__main__":
     print(f"Time spent: {end - start}")
     print(f"ARR len: {arr.__len__()}")
     print("\nSorted array is")
-
 
     assert sorted(arr2) == arr

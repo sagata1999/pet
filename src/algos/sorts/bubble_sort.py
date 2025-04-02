@@ -1,7 +1,6 @@
-from time import time
-from random import randint
 import tracemalloc
-from tools.mem_control import display_top
+from random import randint
+from time import time
 
 
 def bubble_sort(arr):
@@ -16,17 +15,16 @@ def bubble_sort(arr):
 
     # Проходимся по всем элементам массива
     for i in range(n):
-
         # Последние i элементы уже отсортированы
         swapped = False
-        for j in range(0, n - i - 1):
-
+        for j in range(n - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
 
         if not swapped:
             break
+
 
 if __name__ == "__main__":
     n = 1000
@@ -43,7 +41,7 @@ if __name__ == "__main__":
     print("Sorted array:")
     # for i in range(len(arr)):
     #     print("%d" % arr[i], end=" ")
-    stats = snap2.compare_to(snap, 'lineno')
+    stats = snap2.compare_to(snap, "lineno")
 
     print("Изменение памяти:")
     for stat in stats[:5]:  # Выводим топ-5 самых "тяжелых" строк кода

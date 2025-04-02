@@ -1,4 +1,3 @@
-from unittest import TestCase
 
 
 class Fibonacci:
@@ -13,6 +12,7 @@ class Fibonacci:
             a, b = b, a + b
             count += 1
 
+
 # Использование:
 fib_gen = Fibonacci()
 fib_iter = iter(fib_gen)
@@ -24,11 +24,13 @@ print(next(fib_iter))
 
 
 def generator1():
-    yield from [1,2,3]
+    yield from [1, 2, 3]
+
 
 def generator2():
     yield from generator1()
     yield from [4, 5]
+
 
 generator = generator2()
 gen_iter = iter(generator)

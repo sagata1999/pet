@@ -1,6 +1,6 @@
+import tracemalloc
 from random import randint
 from time import time
-import tracemalloc
 
 
 def insertion_sort(arr, left, right):
@@ -16,8 +16,8 @@ def insertion_sort(arr, left, right):
 
 def merge(arr, left, mid, right):
     """Слияние двух подмассивов arr[left:mid+1] и arr[mid+1:right+1]."""
-    left_copy = arr[left:mid + 1]
-    right_copy = arr[mid + 1:right + 1]
+    left_copy = arr[left : mid + 1]
+    right_copy = arr[mid + 1 : right + 1]
     i = j = 0
     k = left
 
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     print("Sorted array:")
     # for i in range(len(arr)):
     #     print("%d" % arr[i], end=" ")
-    stats = snap2.compare_to(snap, 'lineno')
+    stats = snap2.compare_to(snap, "lineno")
 
     print("Изменение памяти:")
     for stat in stats[:5]:  # Выводим топ-5 самых "тяжелых" строк кода

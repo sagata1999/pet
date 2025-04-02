@@ -64,6 +64,7 @@ unfixable = [
 ]
 ignore = [
     "TRY003",
+    "T201",
     "ISC001", # may cause conflicts when used with the formatter
 ]
 
