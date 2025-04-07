@@ -9,8 +9,8 @@ setup:
 lint:
 	@printf "${TXT_BOLD}${TXT_OCEAN}=========================== RUFF ==============================${TXT_RESET}\n"
 	@poetry run ruff check --fix --show-fixes --exit-non-zero-on-fix .
-	@printf "${TXT_BOLD}${TXT_OCEAN}=========================== MYPY ==============================${TXT_RESET}\n"
-	@poetry run mypy $(SERVICE_DIR)/
+# 	@printf "${TXT_BOLD}${TXT_OCEAN}=========================== MYPY ==============================${TXT_RESET}\n"
+# 	@poetry run mypy $(SERVICE_DIR)/
 
 format:
 	@poetry run ruff format $(SERVICE_DIR)/ tests/

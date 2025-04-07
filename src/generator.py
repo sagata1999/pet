@@ -1,5 +1,3 @@
-
-
 class Fibonacci:
     def __init__(self, max_n=None):
         self.max_n = max_n

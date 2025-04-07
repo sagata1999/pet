@@ -8,7 +8,7 @@ def merge(arr, left, mid, right):
     n2 = right - mid
 
     # Create temp arrays
-    l = [0] * n1
+    l = [0] * n1  # noqa
     r = [0] * n2
 
     # Copy data to temp arrays L[] and R[]

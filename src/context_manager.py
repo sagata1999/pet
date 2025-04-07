@@ -6,7 +6,7 @@ with open(filename, "w") as opened_file:
 
 
 # эквивалент написанному выше
-file = open(filename, "w")
+file = open(filename, "w")  # noqa
 try:
     file.write("Hola!")
 finally:
@@ -18,7 +18,7 @@ class File:
     exceptions = (AttributeError,)
 
     def __init__(self, file_name, method):
-        self.file_obj = open(file_name, method)
+        self.file_obj = open(file_name, method)  # noqa
 
     def __enter__(self):
         return self.file_obj

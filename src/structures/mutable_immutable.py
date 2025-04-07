@@ -22,3 +22,12 @@ class MutableTypes:
     ORDERED_DICT: type[OrderedDict[Any, Any]] = OrderedDict
     COUNTER: type[Counter[Any]] = Counter
     CHAIN_MAP: type[ChainMap[Any, Any]] = ChainMap
+
+
+class UpperStr(str):
+    def __new__(cls, value):
+        print("Calling __new__")
+        return super().__new__(cls, value.upper())
+
+    def __init__(self, value):
+        print("Calling __init__")
