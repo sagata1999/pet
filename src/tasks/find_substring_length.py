@@ -1,4 +1,8 @@
-def longest_substring(s):
+def longest_unique_substring(s):
+    """
+    Using sliding window with variable size,
+    to find the longest unique substring
+    """
     max_length = 0
     seen = set()
     left = 0
@@ -11,3 +15,6 @@ def longest_substring(s):
         max_length = max(max_length, right - left + 1)
 
     return max_length
+
+s = "abcabcbb"
+t = longest_unique_substring(s)
