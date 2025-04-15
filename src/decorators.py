@@ -25,4 +25,22 @@ def say_hello():
     print("Привет!")
 
 
+def repeat(times):
+    ''' вызывает функцию количество раз, равное times '''
+    def decorate(fn):
+        def wrapper(*args, **kwargs):
+            for i in range(times):
+                result = fn(*args, **kwargs)
+            return result
+        return wrapper
+    return decorate
+
+@repeat(5)
+def cpuload(x):
+    """ внутри функции cpuload ничего не изменилось """
+    print(f"iter: {x}")
+
+print(f"cpuload.__name__=={cpuload.__name__}")
+print(f"CPU load is {cpuload(1)}")
+
 say_hello()
